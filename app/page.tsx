@@ -33,22 +33,22 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="text-4xl mb-4">🎯</div>
-              <h3 className="text-xl font-semibold mb-2">精準決策</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold mb-2 text-black">精準決策</h3>
+              <p className="text-black">
                 告訴你當前狀態下是「繼續玩」還是「停手」，以及最優期望淨利
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="text-4xl mb-4">📊</div>
-              <h3 className="text-xl font-semibold mb-2">策略視覺化</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold mb-2 text-black">策略視覺化</h3>
+              <p className="text-black">
                 生成完整的策略矩陣熱力圖，直觀看到「甜區」在哪裡
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="text-4xl mb-4">💰</div>
-              <h3 className="text-xl font-semibold mb-2">成本分析</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold mb-2 text-black">成本分析</h3>
+              <p className="text-black">
                 計算平均每中一次的成本、期望中獎次數和總花費
               </p>
             </div>

@@ -43,8 +43,8 @@ export default function PolicyMatrix({ result }: PolicyMatrixProps) {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <div className="mb-4">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">策略矩陣（甜區圖）</h2>
-        <p className="text-sm text-gray-600">
+        <h2 className="text-2xl font-bold text-black mb-2">策略矩陣（甜區圖）</h2>
+        <p className="text-sm text-black">
           綠色 = 建議繼續，紅色 = 建議停手。滑鼠懸停查看詳情。
         </p>
         {(R0 > maxDisplay || B0 > maxDisplay) && (
@@ -55,7 +55,7 @@ export default function PolicyMatrix({ result }: PolicyMatrixProps) {
       </div>
 
       {/* 圖例 */}
-      <div className="flex items-center gap-4 mb-4 text-sm">
+      <div className="flex items-center gap-4 mb-4 text-sm text-black">
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 bg-green-400 border border-gray-300"></div>
           <span>繼續玩</span>
