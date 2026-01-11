@@ -51,11 +51,11 @@ export default function ParameterForm({ onSubmit, isLoading }: ParameterFormProp
   return (
     <form onSubmit={handleSubmit} className="space-y-6 bg-white p-6 rounded-lg shadow-md">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-bold text-gray-800">遊戲參數</h2>
+        <h2 className="text-2xl font-bold text-black">遊戲參數</h2>
         <button
           type="button"
           onClick={loadExample}
-          className="px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 rounded-md transition-colors"
+          className="px-3 py-1 text-sm text-black bg-gray-200 hover:bg-gray-300 rounded-md transition-colors"
         >
           載入範例
         </button>
@@ -63,11 +63,11 @@ export default function ParameterForm({ onSubmit, isLoading }: ParameterFormProp
 
       {/* 基本參數 */}
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold text-gray-700 border-b pb-2">基本參數</h3>
+        <h3 className="text-lg font-semibold text-black border-b pb-2">基本參數</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-black mb-1">
               剩餘中獎刮卡數 (R0)
             </label>
             <input
@@ -75,13 +75,13 @@ export default function ParameterForm({ onSubmit, isLoading }: ParameterFormProp
               min="0"
               value={R0}
               onChange={(e) => setR0(parseInt(e.target.value) || 0)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-black mb-1">
               剩餘未中刮卡數 (B0)
             </label>
             <input
@@ -89,13 +89,13 @@ export default function ParameterForm({ onSubmit, isLoading }: ParameterFormProp
               min="0"
               value={B0}
               onChange={(e) => setB0(parseInt(e.target.value) || 0)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-black mb-1">
               中獎獎金 (元)
             </label>
             <input
@@ -104,13 +104,13 @@ export default function ParameterForm({ onSubmit, isLoading }: ParameterFormProp
               step="0.01"
               value={payoutPerWin}
               onChange={(e) => setPayoutPerWin(parseFloat(e.target.value) || 0)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-black mb-1">
               每次夾取成本 (元)
             </label>
             <input
@@ -119,7 +119,7 @@ export default function ParameterForm({ onSubmit, isLoading }: ParameterFormProp
               step="0.01"
               value={costPerGrab}
               onChange={(e) => setCostPerGrab(parseFloat(e.target.value) || 0)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
               required
             />
           </div>
@@ -140,7 +140,7 @@ export default function ParameterForm({ onSubmit, isLoading }: ParameterFormProp
         {showAdvanced && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pl-4 border-l-2 border-blue-200">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-black mb-1">
                 未中獎安慰獎 (元)
               </label>
               <input
@@ -149,13 +149,13 @@ export default function ParameterForm({ onSubmit, isLoading }: ParameterFormProp
                 step="0.01"
                 value={q}
                 onChange={(e) => setQ(parseFloat(e.target.value) || 0)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
               />
-              <p className="text-xs text-gray-500 mt-1">預設 0</p>
+              <p className="text-xs text-black mt-1">預設 0</p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-black mb-1">
                 一次夾拿幾張刮卡
               </label>
               <input
@@ -164,13 +164,13 @@ export default function ParameterForm({ onSubmit, isLoading }: ParameterFormProp
                 step="0.1"
                 value={scratchPerGrab}
                 onChange={(e) => setScratchPerGrab(parseFloat(e.target.value) || 1)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
               />
-              <p className="text-xs text-gray-500 mt-1">預設 1</p>
+              <p className="text-xs text-black mt-1">預設 1</p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-black mb-1">
                 平均夾幾次拿到一張
               </label>
               <input
@@ -179,9 +179,9 @@ export default function ParameterForm({ onSubmit, isLoading }: ParameterFormProp
                 step="0.1"
                 value={grabsPerScratch}
                 onChange={(e) => setGrabsPerScratch(parseFloat(e.target.value) || 1)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
               />
-              <p className="text-xs text-gray-500 mt-1">預設 1 (夾娃娃較難可設為 1.5-2)</p>
+              <p className="text-xs text-black mt-1">預設 1 (夾娃娃較難可設為 1.5-2)</p>
             </div>
           </div>
         )}
