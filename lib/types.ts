@@ -40,6 +40,13 @@ export interface SolverResult {
   V_matrix: number[][];
   // Continue值矩阵 [R][B] -> Continue(R,B)
   Continue_matrix: number[][];
+  // 强制玩到底的数据（用于展示"如果硬要赌博"的真实成本）
+  force_play_all: {
+    expected_wins: number;
+    expected_total_cost: number;
+    avg_cost_per_win: number | null;
+    expected_net_profit: number;
+  };
 }
 
 /**

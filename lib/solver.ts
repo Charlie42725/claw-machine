@@ -50,6 +50,9 @@ export class ClawMachineSolver {
       ? expected_total_cost / expected_wins
       : null;
 
+    // 计算"强制玩到底"的期望值（用于展示赌博的真实成本）
+    const forcePlayAll = this.computeForcePlayAll();
+
     return {
       V_start,
       policy_start,
@@ -60,6 +63,77 @@ export class ClawMachineSolver {
       policy_matrix: state.policy,
       V_matrix: state.V,
       Continue_matrix: state.Continue,
+      force_play_all: forcePlayAll,
+    };
+  }
+
+  /**
+   * 计算"强制玩到底"的期望值
+   * 假设玩家会一直玩到没有中奖卡为止（R=0），不考虑最优策略
+   */
+  private computeForcePlayAll(): {
+    expected_wins: number;
+    expected_total_cost: number;
+    avg_cost_per_win: number | null;
+    expected_net_profit: number;
+  } {
+    // 初始化DP数组：C_force[r][b] 和 W_force[r][b]
+    // 表示从状态(r,b)强制玩到底的期望成本和期望中奖次数
+    const C_force: number[][] = [];
+    const W_force: number[][] = [];
+
+    for (let r = 0; r <= this.R0; r++) {
+      C_force[r] = new Array(this.B0 + 1).fill(0);
+      W_force[r] = new Array(this.B0 + 1).fill(0);
+    }
+
+    // 边界条件：R=0时，无论B是多少，都不再玩（没有中奖卡了）
+    // C_force[0][b] = 0, W_force[0][b] = 0
+
+    // 从小状态向大状态递推
+    for (let r = 1; r <= this.R0; r++) {
+      for (let b = 0; b <= this.B0; b++) {
+        const total = r + b;
+        if (total === 0) continue;
+
+        const pR = r / total;
+        const pB = b / total;
+
+        // 强制继续玩：付出成本，然后根据结果转移到新状态
+        let expectedCost = this.effective_cost_per_scratch;
+        let expectedWins = 0;
+
+        if (r > 0) {
+          // 抽到中奖卡：得到1次中奖，然后从(r-1,b)继续
+          expectedWins += pR * (1 + W_force[r - 1][b]);
+          expectedCost += pR * C_force[r - 1][b];
+        }
+
+        if (b > 0) {
+          // 抽到没奖卡：得到0次中奖，然后从(r,b-1)继续
+          expectedWins += pB * W_force[r][b - 1];
+          expectedCost += pB * C_force[r][b - 1];
+        }
+
+        C_force[r][b] = expectedCost;
+        W_force[r][b] = expectedWins;
+      }
+    }
+
+    const expected_wins = W_force[this.R0][this.B0];
+    const expected_total_cost = C_force[this.R0][this.B0];
+    const avg_cost_per_win = expected_wins > 0
+      ? expected_total_cost / expected_wins
+      : null;
+
+    // 期望净利 = 期望中奖次数 * 单次奖金 - 期望总成本
+    const expected_net_profit = expected_wins * this.payout_per_win - expected_total_cost;
+
+    return {
+      expected_wins,
+      expected_total_cost,
+      avg_cost_per_win,
+      expected_net_profit,
     };
   }
 
