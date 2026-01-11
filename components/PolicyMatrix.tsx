@@ -71,10 +71,10 @@ export default function PolicyMatrix({ result }: PolicyMatrixProps) {
         <div className="flex">
           {/* Y轴标签 */}
           <div className="flex flex-col-reverse items-end pr-2 pt-6">
-            <div className="text-xs text-black mb-1">0</div>
-            {displayR > 10 && <div className="text-xs text-black" style={{ marginBottom: `${(displayR / 2 - 1) * 100 / displayR}%` }}>{Math.floor(displayR / 2)}</div>}
-            <div className="text-xs text-black" style={{ marginTop: 'auto' }}>{displayR}</div>
-            <div className="text-xs font-medium text-black mb-2 transform -rotate-90 origin-center whitespace-nowrap" style={{ marginBottom: '50%' }}>
+            <div className="text-xs text-gray-500 mb-1">0</div>
+            {displayR > 10 && <div className="text-xs text-gray-500" style={{ marginBottom: `${(displayR / 2 - 1) * 100 / displayR}%` }}>{Math.floor(displayR / 2)}</div>}
+            <div className="text-xs text-gray-500" style={{ marginTop: 'auto' }}>{displayR}</div>
+            <div className="text-xs font-medium text-gray-700 mb-2 transform -rotate-90 origin-center whitespace-nowrap" style={{ marginBottom: '50%' }}>
               中獎卡數 (R)
             </div>
           </div>
@@ -82,7 +82,7 @@ export default function PolicyMatrix({ result }: PolicyMatrixProps) {
           {/* 主矩陣 */}
           <div className="flex-1 overflow-hidden">
             <div
-              className="grid gap-0.5 bg-black bg-opacity-20 p-0.5 rounded"
+              className="grid gap-0.5 bg-gray-200 p-0.5 rounded"
               style={{
                 gridTemplateColumns: `repeat(${displayB + 1}, 1fr)`,
                 gridTemplateRows: `repeat(${displayR + 1}, 1fr)`,
@@ -95,11 +95,11 @@ export default function PolicyMatrix({ result }: PolicyMatrixProps) {
 
             {/* X軸標籤 */}
             <div className="flex justify-between mt-2 px-0.5">
-              <div className="text-xs text-black">0</div>
-              {displayB > 10 && <div className="text-xs text-black">{Math.floor(displayB / 2)}</div>}
-              <div className="text-xs text-black">{displayB}</div>
+              <div className="text-xs text-gray-500">0</div>
+              {displayB > 10 && <div className="text-xs text-gray-500">{Math.floor(displayB / 2)}</div>}
+              <div className="text-xs text-gray-500">{displayB}</div>
             </div>
-            <div className="text-xs font-medium text-black text-center mt-1">
+            <div className="text-xs font-medium text-gray-700 text-center mt-1">
               未中獎卡數 (B)
             </div>
           </div>
@@ -111,25 +111,25 @@ export default function PolicyMatrix({ result }: PolicyMatrixProps) {
             <h4 className="font-semibold text-sm mb-2">狀態詳情</h4>
             <div className="grid grid-cols-2 gap-2 text-sm">
               <div>
-                <span className="text-black">中獎卡數 (R):</span>
+                <span className="text-gray-600">中獎卡數 (R):</span>
                 <span className="font-semibold ml-1">{hoveredCell.r}</span>
               </div>
               <div>
-                <span className="text-black">未中卡數 (B):</span>
+                <span className="text-gray-600">未中卡數 (B):</span>
                 <span className="font-semibold ml-1">{hoveredCell.b}</span>
               </div>
               <div>
-                <span className="text-black">決策:</span>
+                <span className="text-gray-600">決策:</span>
                 <span className={`font-semibold ml-1 ${policy_matrix[hoveredCell.r][hoveredCell.b] ? 'text-green-600' : 'text-red-600'}`}>
                   {policy_matrix[hoveredCell.r][hoveredCell.b] ? '繼續' : '停手'}
                 </span>
               </div>
               <div>
-                <span className="text-black">V值:</span>
+                <span className="text-gray-600">V值:</span>
                 <span className="font-semibold ml-1">{V_matrix[hoveredCell.r][hoveredCell.b].toFixed(2)}</span>
               </div>
               <div className="col-span-2">
-                <span className="text-black">Continue值:</span>
+                <span className="text-gray-600">Continue值:</span>
                 <span className="font-semibold ml-1">{Continue_matrix[hoveredCell.r][hoveredCell.b].toFixed(2)}</span>
               </div>
             </div>

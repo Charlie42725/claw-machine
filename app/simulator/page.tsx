@@ -40,13 +40,13 @@ export default function SimulatorPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black bg-opacity-5">
+    <div className="min-h-screen bg-gray-100">
       <div className="container mx-auto px-4 py-8">
         <header className="mb-8">
-          <h1 className="text-4xl font-bold text-black mb-2">
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">
             夾娃娃刮刮卡決策工具
           </h1>
-          <p className="text-black">
+          <p className="text-gray-600">
             基於動態規劃的最優停止策略計算器
           </p>
         </header>
@@ -73,9 +73,9 @@ export default function SimulatorPage() {
             )}
 
             {!result && !error && (
-              <div className="bg-white p-12 rounded-lg shadow-md text-center text-black">
+              <div className="bg-white p-12 rounded-lg shadow-md text-center text-gray-500">
                 <svg
-                  className="w-16 h-16 mx-auto mb-4 text-black text-opacity-40"
+                  className="w-16 h-16 mx-auto mb-4 text-gray-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
